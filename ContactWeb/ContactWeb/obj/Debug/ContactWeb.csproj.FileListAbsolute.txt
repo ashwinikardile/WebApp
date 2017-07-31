@@ -159,6 +159,9 @@ E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\System.Web.WebPages.dll
 E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\System.Web.WebPages.Razor.dll
 E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\WebGrease.dll
 E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\Microsoft.Owin.xml
+E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\Microsoft.Owin.Security.xml
+E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\Microsoft.Owin.Security.Facebook.xml
 E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\System.Web.Helpers.xml
 E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\System.Web.Mvc.xml
 E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\System.Web.Optimization.xml
@@ -173,10 +176,7 @@ E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\EntityFramework.SqlServer.xml
 E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\Microsoft.AspNet.Identity.Core.xml
 E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\Microsoft.AspNet.Identity.Owin.xml
 E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\Microsoft.Owin.xml
 E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\Microsoft.Owin.Host.SystemWeb.xml
-E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\Microsoft.Owin.Security.xml
-E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\Microsoft.Owin.Security.Facebook.xml
 E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\Microsoft.Owin.Security.Cookies.xml
 E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\Microsoft.Owin.Security.OAuth.xml
 E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\Microsoft.Owin.Security.Google.xml
