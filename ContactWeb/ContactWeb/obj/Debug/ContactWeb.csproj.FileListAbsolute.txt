@@ -190,3 +190,5 @@ E:\Visual Studio\WebApp\ContactWeb\ContactWeb\bin\Microsoft.AI.Web.xml
 E:\Visual Studio\WebApp\ContactWeb\ContactWeb\obj\Debug\ContactWeb.csprojResolveAssemblyReference.cache
 E:\Visual Studio\WebApp\ContactWeb\ContactWeb\obj\Debug\ContactWeb.dll
 E:\Visual Studio\WebApp\ContactWeb\ContactWeb\obj\Debug\ContactWeb.pdb
+E:\Visual Studio\WebApp\ContactWeb\ContactWeb\obj\Debug\ContactWeb.Migrations.InitialCreate.resources
+E:\Visual Studio\WebApp\ContactWeb\ContactWeb\obj\Debug\ContactWeb.csproj.GenerateResource.Cache

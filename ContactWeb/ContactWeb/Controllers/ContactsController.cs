@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ContactWeb.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ContactWeb.Controllers
 {
@@ -15,13 +16,16 @@ namespace ContactWeb.Controllers
         private ContactWebContext db = new ContactWebContext();
 
         // GET: Contacts
+		[Authorize]
         public ActionResult Index()
         {
-            return View(db.Contacts.ToList());
-        }
+			var userId = GetCurrentUserId();
+			return View(db.Contacts.Where(x => x.UserId == userId).ToList());
+		}
 
-        // GET: Contacts/Details/5
-        public ActionResult Details(int? id)
+		// GET: Contacts/Details/5
+		[Authorize]
+		public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -35,8 +39,9 @@ namespace ContactWeb.Controllers
             return View(contact);
         }
 
-        // GET: Contacts/Create
-        public ActionResult Create()
+		// GET: Contacts/Create
+		[Authorize]
+		public ActionResult Create()
         {
             return View();
         }
@@ -46,7 +51,8 @@ namespace ContactWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,UserId,FirstName,LastName,Email,birthday,contactPrim,contactSec,streetAddress1,streetAddress2,city,State,Zip")] Contact contact)
+		[Authorize]
+		public ActionResult Create([Bind(Include = "Id,UserId,FirstName,LastName,Email,birthday,contactPrim,contactSec,streetAddress1,streetAddress2,city,State,Zip")] Contact contact)
         {
             if (ModelState.IsValid)
             {
@@ -58,8 +64,9 @@ namespace ContactWeb.Controllers
             return View(contact);
         }
 
-        // GET: Contacts/Edit/5
-        public ActionResult Edit(int? id)
+		// GET: Contacts/Edit/5
+		[Authorize]
+		public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -77,7 +84,8 @@ namespace ContactWeb.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+		[Authorize]
+		[ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,UserId,FirstName,LastName,Email,birthday,contactPrim,contactSec,streetAddress1,streetAddress2,city,State,Zip")] Contact contact)
         {
             if (ModelState.IsValid)
@@ -89,8 +97,9 @@ namespace ContactWeb.Controllers
             return View(contact);
         }
 
-        // GET: Contacts/Delete/5
-        public ActionResult Delete(int? id)
+		// GET: Contacts/Delete/5
+		[Authorize]
+		public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -107,7 +116,8 @@ namespace ContactWeb.Controllers
         // POST: Contacts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+		[Authorize]
+		public ActionResult DeleteConfirmed(int id)
         {
             Contact contact = db.Contacts.Find(id);
             db.Contacts.Remove(contact);
@@ -123,5 +133,29 @@ namespace ContactWeb.Controllers
             }
             base.Dispose(disposing);
         }
+
+		public Guid GetCurrentUserId()
+		{
+			return new Guid(User.Identity.GetUserId());
+			/*try
+			{
+				var userId = new Guid(User.Identity.GetUserId());
+				var userName = User.Identity.GetUserName();
+				ViewBag.UserId = userId;
+				ViewBag.UserName = userName;
+				ViewData["UserId"] = userId;
+				ViewData["UserName"] = userName;
+			}
+			catch (System.Exception ex)
+			{
+
+			}*/
+		}
+
+		private bool IsAuthorizedUser(Contact contact)
+		{
+			return contact.UserId == GetCurrentUserId();
+		}
+
     }
 }
